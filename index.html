@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">  
+</head>
+<body>
+        <div class="container">
+            <h1>Registro de personas</h1>
+            <form id="FormPersona">
+                <fieldset>
+                    <legends>Datos personales</legends>
+                    <label for="nombre">Nombre: </label>
+                    <input type="text" name="nombre" id="nombre" required placeholder="Digite su nombre">
+
+                    <label for="apellido">Apellido: </label>
+                    <input type="text" name="apellido" id="apellido" required placeholder="Digite su apellido">
+
+                    <label for="edad">Edad: </label>
+                    <input type="number" name="edad" id="edad" required min="0" max="100">
+
+                    <label for="genero">Genero:</label>
+                    <select name="genero" id="genero">
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="39tiposdegay">39 tipos de gay</option>
+                    </select>    
+                </fieldset>
+
+                <fieldset>
+                    <legends>Datos de contacto</legends>
+                        <label for="email">Correo electronico: </label>
+                        <input type="email" name="email" id="email" placeholder="Digite su correo electronico" required>
+
+                        <label for="Contacto">Numero de contacto: </label>
+                        <input type="tel" name="Contacto" id="Contacto" placeholder="Digite su numero de telefono" required>              
+                </fieldset>
+
+                <fieldset>
+                    <legends>Datos adicionales</legends>
+
+                    <label for="direccion">Direccion: </label>
+                    <textarea name="direccion" id="direccion" placehoGlder="Digite su direccion"></textarea>
+                    
+                    <label for="fecha">Fecha de nacimiento: </label>
+                    <input type="date" name="fecha" id="fecha"required>
+                </fieldset>
+
+                <fieldset>
+                    <legends>Para la tarea</legends>
+
+                    <label for="color">Elija su color favorito</label>
+                    <input type="color" name="color" id="color">
+
+                    <div class="mb-3">
+                        <label for="imagen" class="form-label">Elija una imagen</label>
+                        <input class="form-control" type="file" id="imagen">
+                    </div>
+                    <img id="imagenSubida" src="#" alt="">
+                    <br>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="terminos" id="confirmar" value="Ok">
+                        <label class="form-check-label" for="confirmar">
+                        He leido y acepto los terminos y condiciones
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="terminos" id="rechazar" value="No">
+                        <label class="form-check-label" for="rechazar">
+                        No acepto los terminos y condiciones
+                        </label>
+                    </div>
+                    <br>
+                    <h6>Selecciona los dispositivos que tienes:</h6>
+                    <div class="checkbox">
+                        <label for="laptop">Laptop</label>
+                        <input type="checkbox" id="laptop" />
+                    </div>
+                    
+                    <div class="checkbox">
+                        <label for="celular">Celular</label>
+                        <input type="checkbox" id="celular" value="celular" />
+                    </div>
+                    
+                    <div class="checkbox">
+                        <label for="tablet">Tablet</label>
+                        <input type="checkbox" id="tablet" value="tablet" />
+                    </div>
+                        <br>
+                </fieldset>
+                <div class="button-container">
+                    <input type="submit" value="Enviar datos" class="btn">
+                    <input type="reset" value="Limpiar datos" style="background-color: red;" class="btn btn-danger">
+                </div>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <h1>Lista de personas</h1>
+            <table class="table" id="tablaPersonas">
+                <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Edad</th>                        
+                    <th scope="col">Genero</th>
+                    <th scope="col">Email</th>
+                </tr>
+                </thead>
+                <tbody>     
+                </tbody>
+            </table>
+        </div>
+    <script src="scrypt.js"></script>
+</body>
+</html>
