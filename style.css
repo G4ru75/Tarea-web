@@ -1,6 +1,5 @@
 body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    display: flex;
 }
 
 .container{
@@ -11,6 +10,10 @@ body{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.contenedorMayor{
+    display: flex;
 }
 
 input[type="submit"], input[type="reset"]{
@@ -117,4 +120,13 @@ img{
     height: 130px;
     border-radius: 75px;
     margin-bottom: 10px;
+}
+
+footer{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+    background-color: #104923;
 }
