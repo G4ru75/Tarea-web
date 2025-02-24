@@ -14,7 +14,7 @@ document.getElementById("FormPersona").addEventListener("submit",function(event)
     }; 
 
     Personas.push(Persona);
-    //alert(JSON.stringify(Personas));
+    alert(JSON.stringify(Personas));
     llenarTabla();
 });
 
@@ -24,18 +24,19 @@ document.getElementById('imagen').addEventListener('change', function(event) {
     if (file) {
         const reader = new FileReader();
         reader.onload = function(e) {
-            const preview = document.getElementById('imagenSubida');
-            preview.src = e.target.result;
-            preview.style.display = 'block';
+            const foto = document.getElementById('imagenSubida');
+            foto.src = e.target.result;
+            foto.style.display = 'block';
         };
         reader.readAsDataURL(file);
     }
 });
 
+//Para que la foto de la visualizacion se elimine cuando se limpian los datos
 document.getElementById("FormPersona").addEventListener("reset", function() {
-    const preview = document.getElementById('imagenSubida');
-    preview.src = '#';
-    preview.style.display = 'none';
+    const foto = document.getElementById('imagenSubida');
+    foto.src = '#';
+    foto.style.display = 'none';
 });
 
 //Llenar la tabla
@@ -66,3 +67,35 @@ function llenarTabla() {
         fila.insertCell(4).innerHTML = persona.email;
     });
 }
+
+//Guardar los datos de personas en un achivo txt
+/*
+function GuardarDatos(){
+    const fs = require('fs');
+    const Datos = JSON.stringify(Personas, null, 2);
+    fs.writeFileSync('Personas.txt', Datos, (error) => {
+        if (error) throw error;
+        alert('Datos guardados');
+    }); 
+}
+
+document.getElementById("guardarDatos").addEventListener("click",function(){
+    GuardarDatos();
+});
+*/
+
+function GuardarDatos() {
+    const Datos = JSON.stringify(Personas, null, 2);
+    const blob = new Blob([Datos], { type: "text/plain" });
+    const link = document.createElement("a");
+
+    link.href = URL.createObjectURL(blob);
+    link.download = "Personas.txt";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+document.getElementById("guardarDatos").addEventListener("click", function () {
+    GuardarDatos();
+});
