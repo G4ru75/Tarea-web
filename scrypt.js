@@ -2,6 +2,12 @@ const Personas = [];
 document.getElementById("FormPersona").addEventListener("submit",function(event){
     event.preventDefault(); 
 
+    const decision = document.getElementById("confirmar").checked;
+    if (!decision) {
+        alert("Debe aceptar los terminos y condiciones");
+        return;
+    }
+
     const Persona = {
         nombre: document.getElementById("nombre").value,
         apellido: document.getElementById("apellido").value,
@@ -14,7 +20,7 @@ document.getElementById("FormPersona").addEventListener("submit",function(event)
     }; 
 
     Personas.push(Persona);
-    alert(JSON.stringify(Personas));
+    //alert(JSON.stringify(Personas));
     llenarTabla();
 });
 
@@ -46,11 +52,14 @@ function llenarTabla() {
     tabla.innerHTML = `
         <thead>
             <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">Edad</th>
-                <th scope="col">Genero</th>
-                <th scope="col">Email</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Edad</th>                        
+            <th scope="col">Genero</th>
+            <th scope="col">Email</th>
+            <th scope="col">Numero</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">FechaNacimiento</th>
             </tr>
         </thead>
         <tbody></tbody>
@@ -65,6 +74,9 @@ function llenarTabla() {
         fila.insertCell(2).innerHTML = persona.edad;
         fila.insertCell(3).innerHTML = persona.genero;
         fila.insertCell(4).innerHTML = persona.email;
+        fila.insertCell(5).innerHTML = persona.telefono;
+        fila.insertCell(6).innerHTML = persona.direccion;
+        fila.insertCell(7).innerHTML = persona.fecha;
     });
 }
 
